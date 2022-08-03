@@ -1,0 +1,138 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#070707" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Szymon Szadkowski" />
+    <meta name="copyright" content="Szymon Szadkowski" />
+    <meta
+      name="keywords"
+      content="Szymon Szadkowski, Naqet, Full-stack developer, Developer to hire, Developer in Poland, Freelancer, Warsaw"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <style is:global>
+      :root {
+        --primary-text: rgb(255, 255, 255);
+        --secondary-text: rgba(255, 255, 255, 0.75);
+        --purple: #9685ff;
+        --blue: #00d2ef;
+        --light-blue: #67ffd8;
+        --error: #de6d49;
+        --gradient: #9685ff, #00d2ef, #67ffd8;
+        --bg: #070707;
+      }
+
+      html {
+        font-family: Inter, sans-serif;
+        background-color: var(--bg);
+        color: var(--primary-text);
+        max-width: 1920px;
+        margin-inline: auto;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        z-index: 2;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        padding: 0 2rem 2rem;
+        max-width: 1024px;
+        height: 100%;
+        margin: auto;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      a {
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      ul {
+        margin: 0;
+      }
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+
+      textarea {
+        font-family: inherit;
+      }
+
+      .gradient-text {
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--gradient));
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+
+      .gradient-underline {
+        position: relative;
+        width: fit-content;
+      }
+
+      .gradient-underline::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0px;
+        height: 1.5px;
+        width: 100%;
+        background: linear-gradient(90deg, var(--gradient));
+        transition: 0.3s transform ease;
+        transform-origin: left;
+      }
+
+      .gradient-underline:hover::after,
+      .gradient-underline:focus::after {
+        transform: scaleX(0);
+        transform-origin: right;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 5px;
+      }
+
+      ::selection {
+        /* This is just var(--blue) but with 50% opacity */
+        background-color: rgba(0, 210, 239, 0.5);
+      }
+    </style>
+  </body>
+</html>

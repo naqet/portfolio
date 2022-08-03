@@ -1,0 +1,10 @@
+---
+import CanvasBg from "../components/CanvasBg.jsx";
+import ContactPanel from "../components/ContactPanel.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="I'm open to work!" description="TODO: add description">
+  <ContactPanel />
+  <CanvasBg client:only="react" />
+</Layout>

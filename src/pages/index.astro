@@ -1,0 +1,13 @@
+---
+import CanvasBg from "../components/CanvasBg.jsx";
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="naqet.dev | Full-Stack Developer"
+  description="TODO: add description"
+>
+  <Hero />
+  <CanvasBg client:only="react" />
+</Layout>

@@ -1,0 +1,46 @@
+<main id="main">
+  <h1>You are at the end of the <span class="gradient-text">universe</span></h1>
+  <a href="/" tabindex="0">Go back to home page</a>
+</main>
+
+<style>
+  main {
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+
+  a {
+    border: 2px solid var(--secondary-text);
+    padding: 0.5rem 1rem;
+    color: var(--primary-text);
+  }
+
+  a:focus,
+  a:hover {
+    outline: none;
+    border: 2px solid var(--blue);
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h1::before {
+    content: "404";
+    position: absolute;
+    font-size: 12rem;
+    color: var(--secondary-text);
+    opacity: 0.08;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: 768px) {
+    h1::before {
+      font-size: 20rem;
+    }
+  }
+</style>

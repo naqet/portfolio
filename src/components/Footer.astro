@@ -1,0 +1,67 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <ul>
+    <li>
+      <a
+        href="https://www.linkedin.com/in/naqet/"
+        tabindex="0"
+        target="_blank"
+        rel="noreferrer"
+        >LinkedIn
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://github.com/naqet"
+        tabindex="0"
+        target="_blank"
+        rel="noreferrer"
+        >GitHub
+      </a>
+    </li>
+    <li><a href="mailto:s.t.szad@gmail.com" tabindex="0">Mail me</a></li>
+  </ul>
+
+  <p>Copyright &copy; {currentYear} Szymon Szadkowski</p>
+</footer>
+
+<style>
+  footer {
+    padding: 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
+
+  a {
+    color: var(--primary-text);
+  }
+
+  p {
+    color: var(--secondary-text);
+  }
+
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 500px) {
+    footer {
+      flex-direction: row;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    footer {
+      padding: 3rem;
+    }
+  }
+</style>

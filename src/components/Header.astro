@@ -1,0 +1,164 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<header>
+  <a
+    href="#main"
+    aria-label="Ship to main content"
+    class="skip-to-main-content"
+    tabindex="0"
+    >Skip to main content
+  </a>
+  <a href="/" aria-label="Szymon Szadkowski" class="logo" tabindex="0"
+    >Szymon Szadkowski
+  </a>
+  <nav>
+    <ul>
+      <li>
+        <a
+          aria-label="Go to home page"
+          href="/"
+          class={currentPath === "" && "active"}
+          tabindex="0"
+          >index
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Go to about me page"
+          href="/about"
+          class={currentPath === "about" && "active"}
+          tabindex="0"
+          >about
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Go to contact page"
+          href="/contact"
+          class={currentPath === "contact" && "active"}
+          tabindex="0"
+          >contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+  }
+
+  a {
+    color: var(--secondary-text);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--primary-text);
+  }
+
+  .active {
+    color: var(--primary-text);
+  }
+
+  .logo {
+    position: relative;
+    transition: 0.3s all ease;
+    /* We set width here for outline to display properly */
+    width: 6ch;
+    border-radius: 8px;
+  }
+
+  .logo:hover,
+  .logo:focus {
+    /* We set this so normally it's not visible, but screen readers can without any problem announce what is inside the a tag
+		and we don't get any eslint errors.*/
+    color: transparent;
+  }
+
+  .logo::before {
+    content: "@naqet";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--primary-text);
+    transition: 0.3s all ease;
+    opacity: 100;
+    visibility: visible;
+  }
+
+  .go-back {
+    display: none;
+  }
+
+  .skip-to-main-content {
+    position: absolute;
+    top: 4.5rem;
+    left: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .skip-to-main-content:focus {
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 1024px) {
+    header {
+      padding: 3rem;
+    }
+
+    .skip-to-main-content {
+      top: 3rem;
+      left: 15rem;
+    }
+
+    .logo {
+      width: 15.5ch;
+      color: transparent;
+    }
+
+    .logo:hover::before,
+    .logo:focus::before {
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .logo::after {
+      content: "Szymon Szadkowski";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(100%);
+      transition: 0.3s all ease;
+      width: max-content;
+      color: transparent;
+      background-image: linear-gradient(90deg, var(--gradient));
+      background-clip: text;
+      -webkit-background-clip: text;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .logo:hover::after,
+    .logo:focus::after {
+      transform: translateY(0);
+      opacity: 100;
+      visibility: visible;
+    }
+  }
+</style>

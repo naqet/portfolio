@@ -1,0 +1,10 @@
+---
+import CanvasBg from "../components/CanvasBg.jsx";
+import NotFound from "../components/NotFound.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Nothing to be found here..." description="TODO: add description">
+  <NotFound />
+  <CanvasBg client:only="react" />
+</Layout>

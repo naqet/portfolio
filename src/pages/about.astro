@@ -1,0 +1,13 @@
+---
+import AboutInfo from "../components/AboutInfo.astro";
+import CanvasBg from "../components/CanvasBg.jsx";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Want to learn more about me?"
+  description="TODO: add description"
+>
+  <AboutInfo />
+  <CanvasBg client:only="react" />
+</Layout>
