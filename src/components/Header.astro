@@ -11,9 +11,7 @@ const currentPath = pathname.slice(1);
     tabindex="0"
     >Skip to main content
   </a>
-  <a href="/" aria-label="Szymon Szadkowski" class="logo" tabindex="0"
-    >Szymon Szadkowski
-  </a>
+  <a href="/" aria-label="Szymon Szadkowski" class="logo" tabindex="0"> </a>
   <nav>
     <ul>
       <li>
@@ -47,7 +45,7 @@ const currentPath = pathname.slice(1);
   </nav>
 </header>
 
-<style>
+<style lang="scss">
   header {
     display: flex;
     justify-content: space-between;
@@ -62,11 +60,11 @@ const currentPath = pathname.slice(1);
 
   a {
     color: var(--secondary-text);
-  }
 
-  a:hover,
-  a:focus {
-    color: var(--primary-text);
+    &:hover,
+    &:focus {
+      color: var(--primary-text);
+    }
   }
 
   .active {
@@ -77,30 +75,24 @@ const currentPath = pathname.slice(1);
     position: relative;
     transition: 0.3s all ease;
     /* We set width here for outline to display properly */
-    width: 6ch;
+    width: 6.5ch;
     border-radius: 8px;
-  }
 
-  .logo:hover,
-  .logo:focus {
-    /* We set this so normally it's not visible, but screen readers can without any problem announce what is inside the a tag
-		and we don't get any eslint errors.*/
-    color: transparent;
-  }
+    &:focus,
+    &:hover {
+      color: transparent;
+    }
 
-  .logo::before {
-    content: "@naqet";
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: var(--primary-text);
-    transition: 0.3s all ease;
-    opacity: 100;
-    visibility: visible;
-  }
-
-  .go-back {
-    display: none;
+    &::before {
+      content: "@naqet";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--primary-text);
+      transition: 0.3s all ease;
+      opacity: 100;
+      visibility: visible;
+    }
   }
 
   .skip-to-main-content {
@@ -110,10 +102,10 @@ const currentPath = pathname.slice(1);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-  }
 
-  .skip-to-main-content:focus {
-    opacity: 1;
+    &:focus {
+      opacity: 1;
+    }
   }
 
   @media screen and (min-width: 1024px) {
@@ -127,38 +119,39 @@ const currentPath = pathname.slice(1);
     }
 
     .logo {
-      width: 15.5ch;
+      width: 16.5ch;
       color: transparent;
-    }
 
-    .logo:hover::before,
-    .logo:focus::before {
-      transform: translateY(-100%);
-      opacity: 0;
-      visibility: hidden;
-    }
+      &::after {
+        content: "Szymon Szadkowski";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        transition: 0.3s all ease;
+        width: max-content;
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--gradient));
+        background-clip: text;
+        -webkit-background-clip: text;
+        opacity: 0;
+        visibility: hidden;
+      }
 
-    .logo::after {
-      content: "Szymon Szadkowski";
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(100%);
-      transition: 0.3s all ease;
-      width: max-content;
-      color: transparent;
-      background-image: linear-gradient(90deg, var(--gradient));
-      background-clip: text;
-      -webkit-background-clip: text;
-      opacity: 0;
-      visibility: hidden;
-    }
+      &:hover,
+      &:focus {
+        &::after {
+          transform: translateY(0);
+          opacity: 100;
+          visibility: visible;
+        }
 
-    .logo:hover::after,
-    .logo:focus::after {
-      transform: translateY(0);
-      opacity: 100;
-      visibility: visible;
+        &::before {
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
     }
   }
 </style>

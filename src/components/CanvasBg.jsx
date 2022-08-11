@@ -11,7 +11,7 @@ const CanvasBg = () => {
     <canvas
       id="canvas-bg"
       style={{
-        position: "absolute",
+        position: "fixed",
         inset: 0,
         zIndex: -1,
         width: "100vw",

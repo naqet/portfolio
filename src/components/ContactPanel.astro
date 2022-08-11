@@ -1,68 +1,80 @@
+---
+const originUrl = new URL(Astro.request.url).origin;
+---
+
 <main id="main">
   <div class="contact-info">
     <h1>Contact me</h1>
-    <p class="about-para">
-      Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim
-      labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet.
-      Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum
-      Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident.
-      Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex
-      occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat
+    <p>
+      Perhaps send me a message if you've come this far? I'm always open to new
+      opportunities, whether they involve working for your company full-time,
+      doing side work as a freelancer, or contributing to open source.
     </p>
-    <form action="https://formsubmit.co/s.t.szad@gmail.com" method="POST">
-      <div class="input-box">
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          placeholder=" "
-          aria-label="Your or company name"
-        />
-        <label for="name">Name</label>
-      </div>
-
-      <div class="input-box">
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          placeholder=" "
-          aria-label="Email to receive answer to"
-        />
-        <label for="email">Email</label>
-      </div>
-
-      <div class="input-box">
-        <input
-          id="_subject"
-          name="_subject"
-          type="text"
-          required
-          placeholder=" "
-          aria-label="Topic of the message"
-        />
-        <label for="_subject">Topic</label>
-      </div>
-
-      <div class="input-box">
-        <textarea
-          id="message"
-          name="message"
-          rows="8"
-          required
-          placeholder=" "
-          aria-label="Content of the message"></textarea>
-        <label for="message">Message</label>
-      </div>
-      <input type="text" name="_honey" style="display:none" />
-      <button type="submit">Send</button>
-    </form>
+    <p>
+      I am aware that some individuals dislike forms... I'm always available on <a
+        href="https://www.linkedin.com/in/naqet/"
+        tabindex="0"
+        target="_blank"
+        rel="noreferrer"
+        class="gradient-underline"
+        >LinkedIn</a> if you want to connect.
+    </p>
+    <p>Take care and have a nice day!</p>
   </div>
+  <form action="https://formsubmit.co/s.t.szad@gmail.com" method="POST">
+    <div class="input-box">
+      <input
+        id="name"
+        name="name"
+        type="text"
+        required
+        placeholder=" "
+        aria-label="Your or company name"
+      />
+      <label for="name">Name</label>
+    </div>
+
+    <div class="input-box">
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        placeholder=" "
+        aria-label="Email to receive answer to"
+      />
+      <label for="email">Email</label>
+    </div>
+
+    <div class="input-box">
+      <input
+        id="_subject"
+        name="_subject"
+        type="text"
+        required
+        placeholder=" "
+        aria-label="Topic of the message"
+      />
+      <label for="_subject">Topic</label>
+    </div>
+
+    <div class="input-box">
+      <textarea
+        id="message"
+        name="message"
+        rows="8"
+        required
+        placeholder=" "
+        aria-label="Content of the message"></textarea>
+      <label for="message">Message</label>
+    </div>
+    <input type="hidden" name="_next" value={originUrl + "/thank-you"} />
+    <input type="text" name="_honey" style="display:none" />
+    <button type="submit">Send</button>
+  </form>
 </main>
 
-<style>
+<style lang="scss">
   main {
     padding: 2rem;
     display: grid;
@@ -90,6 +102,38 @@
     width: -webkit-fill-available;
     width: -moz-available;
     caret-color: var(--blue);
+
+    &:focus,
+    &:hover {
+      border-color: var(--blue);
+      outline: none;
+
+      & ~ label {
+        top: -0.5rem;
+        font-size: 0.8rem;
+        padding-inline: 0.5rem;
+        background-color: var(--bg);
+      }
+    }
+
+    &:valid {
+      border-color: var(--light-blue);
+      caret-color: var(--light-blue);
+    }
+
+    &:not(:placeholder-shown) {
+      &:invalid {
+        border-color: var(--error);
+        caret-color: var(--error);
+      }
+
+      &:not(:focus) ~ label {
+        top: -0.5rem;
+        font-size: 0.8rem;
+        padding-inline: 0.5rem;
+        background-color: var(--bg);
+      }
+    }
   }
 
   /* This overrides default autocomplete styles */
@@ -99,36 +143,6 @@
   input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
     -webkit-text-fill-color: var(--light-blue) !important;
-  }
-
-  input:hover,
-  input:focus,
-  textarea:hover,
-  textarea:focus {
-    border-color: var(--blue);
-    outline: none;
-  }
-
-  input:valid,
-  textarea:valid {
-    border-color: var(--light-blue);
-    caret-color: var(--light-blue);
-  }
-
-  input:not(:placeholder-shown):invalid,
-  textarea:not(:placeholder-shown):invalid {
-    border-color: var(--error);
-    caret-color: var(--error);
-  }
-
-  input:focus ~ label,
-  textarea:focus ~ label,
-  input:not(:placeholder-shown):not(:focus) ~ label,
-  textarea:not(:placeholder-shown):not(:focus) ~ label {
-    top: -0.5rem;
-    font-size: 0.8rem;
-    padding-inline: 0.5rem;
-    background-color: var(--bg);
   }
 
   textarea {
@@ -155,20 +169,21 @@
     background: transparent;
     cursor: pointer;
     outline: none;
+
+    &:hover,
+    &:focus {
+      border-color: var(--blue);
+      outline: none;
+    }
   }
 
-  button:hover,
-  button:focus {
-    border-color: var(--blue);
-    outline: none;
+  a {
+    color: var(--primary-text);
   }
 
-  .about-para {
+  .contact-info > p {
     line-height: 2;
-    margin-bottom: 1rem;
-  }
-
-  h4 {
+    margin-block: 2rem;
   }
 
   @media screen and (min-width: 768px) {

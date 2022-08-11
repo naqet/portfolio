@@ -49,22 +49,23 @@ const projects: Project[] = [
   </ul>
   <h2>About me</h2>
   <p class="about-para">
-    Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim
-    labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet.
-    Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ifficia
-    pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat
-    reprehenderit commodo officia dolor Lorem duis laboris cupidatat
+    I've always been the kind of person who would be ideal for a job as a
+    programmer. I spent a lot of time around computers, was driven to complete
+    tasks, and detested being late. I made the decision to only work on app
+    development around the beginning of 2020, and just one and a half years
+    later - up until that point, I had been freelancing - I was able to land a
+    full-time position as a front-end developer.
   </p>
   <a
     href="/about"
-    aria-label="Read more about me"
+    aria-label="Go to about me page"
     class="gradient-underline"
     tabindex="0"
-    >Read more
+    >Get to know me better
   </a>
 </main>
 
-<style>
+<style lang="scss">
   main {
     line-height: 1.5;
   }
@@ -90,16 +91,16 @@ const projects: Project[] = [
   li {
     color: var(--secondary-text);
     line-height: 1.8;
-  }
 
-  li::before {
-    content: "";
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    position: absolute;
-    background: var(--secondary-text);
-    transform: translate(-18px, 14px);
+    &::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      position: absolute;
+      background: var(--secondary-text);
+      transform: translate(-18px, 14px);
+    }
   }
 
   a {

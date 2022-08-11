@@ -1,0 +1,10 @@
+---
+import CanvasBg from "../components/CanvasBg.jsx";
+import ThankYouInfo from "../components/ThankYouInfo.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="I'll answer you ASAP!" description="TODO: add description">
+  <ThankYouInfo />
+  <CanvasBg client:only="react" />
+</Layout>

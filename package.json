@@ -7,20 +7,22 @@
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
-		// We need this special command for prettier to work properly atm
     "prettier": "prettier -w --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@astrojs/react": "^0.4.2",
+    "@astrojs/react": "^1.0.0",
     "@typescript-eslint/parser": "^5.31.0",
     "astro": "^1.0.0-rc.3",
     "astro-icon": "^0.7.3",
+    "autoprefixer": "^10.4.8",
+    "cssnano": "^5.1.12",
     "eslint": "^8.20.0",
     "eslint-plugin-astro": "^0.16.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.2"
   }
 }

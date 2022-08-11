@@ -28,7 +28,7 @@ const currentYear = new Date().getFullYear();
   <p>Copyright &copy; {currentYear} Szymon Szadkowski</p>
 </footer>
 
-<style>
+<style lang="scss">
   footer {
     padding: 2rem;
     gap: 1rem;
@@ -39,7 +39,11 @@ const currentYear = new Date().getFullYear();
   }
 
   a {
-    color: var(--primary-text);
+    color: var(--secondary-text);
+
+		&:focus, &:hover {
+			color: var(--primary-text);
+		}
   }
 
   p {
