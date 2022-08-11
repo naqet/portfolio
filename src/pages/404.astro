@@ -4,7 +4,11 @@ import NotFound from "../components/NotFound.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Nothing to be found here..." description="TODO: add description">
+<Layout
+  title="Nothing to be found here..."
+  description="Well, you won't find anything here. It's just a 404 page. I don't know where you clicked, but you missed."
+  keywords="404 page"
+>
   <NotFound />
   <CanvasBg client:only="react" />
 </Layout>

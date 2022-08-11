@@ -5,9 +5,10 @@ import Header from "../components/Header.astro";
 export interface Props {
   title: string;
   description: string;
+  keywords: string;
 }
 
-const { title, description } = Astro.props as Props;
+const { title, description, keywords } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -21,10 +22,7 @@ const { title, description } = Astro.props as Props;
     <meta name="description" content={description} />
     <meta name="author" content="Szymon Szadkowski" />
     <meta name="copyright" content="Szymon Szadkowski" />
-    <meta
-      name="keywords"
-      content="Szymon Szadkowski, Naqet, Full-stack developer, Developer to hire, Developer in Poland, Freelancer, Warsaw"
-    />
+    <meta name="keywords" content={keywords} />
   </head>
   <body>
     <Header />
