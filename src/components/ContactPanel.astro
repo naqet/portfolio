@@ -182,7 +182,7 @@ const originUrl = new URL(Astro.request.url).origin;
     color: var(--primary-text);
   }
 
-  .contact-info > p {
+  .contact-info > p:not(:last-child) {
     line-height: 2;
     margin-block: 2rem;
   }

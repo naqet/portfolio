@@ -6,26 +6,27 @@ interface Project {
   github: string;
 }
 
-const projects: Project[] = [
-  {
-    link: "/",
-    name: "martakrauz.pl",
-    description: ", A local business website using ISR technology",
-    github: "/",
-  },
-  {
-    link: "/",
-    name: "martakrauz.pl",
-    description: ", A local business website using ISR technology",
-    github: "/",
-  },
-  {
-    link: "/",
-    name: "martakrauz.pl",
-    description: ", A local business website using ISR technology",
-    github: "/",
-  },
-];
+const projects: Project[] = [];
+//[
+//  {
+//    link: "/",
+//    name: "martakrauz.pl",
+//    description: ", A local business website using ISR technology",
+//    github: "/",
+//  },
+//  {
+//    link: "/",
+//    name: "martakrauz.pl",
+//    description: ", A local business website using ISR technology",
+//    github: "/",
+//  },
+//  {
+//    link: "/",
+//    name: "martakrauz.pl",
+//    description: ", A local business website using ISR technology",
+//    github: "/",
+//  },
+//];
 ---
 
 <main id="main">
@@ -38,12 +39,12 @@ const projects: Project[] = [
   </h1>
   <h2>Recent projects</h2>
   <ul>
-    {projects.map((project) => (
+    {projects.length ? projects.map((project) => (
       <li>
         <a href={project.link} class="gradient-underline" tabindex="0">
           {project.name}</a>{project.description}
       </li>
-    ))}
+    )) : <li>Coming soon...</li>}
   </ul>
   <h2>About me</h2>
   <p class="about-para">
