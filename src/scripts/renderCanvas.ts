@@ -81,7 +81,7 @@ class Line {
       secondLastNode.x,
       secondLastNode.y,
       lastNode.x,
-      lastNode.y
+      lastNode.y,
     );
     ctx.stroke();
     ctx.closePath();
@@ -97,8 +97,7 @@ const resizeCanvas = () => {
 
 const updatePosition = (event: MouseEvent) => {
   currentPosition.x = event.clientX;
-  // We add 25 for lines to appear under the cursor
-  currentPosition.y = event.clientY + 25;
+  currentPosition.y = event.clientY + 5;
 };
 
 const handleMousemove = (e: MouseEvent) => {
@@ -133,12 +132,13 @@ export const initCanvas = function () {
   if (!document) return;
 
   ctx = (document.getElementById("canvas-bg") as HTMLCanvasElement).getContext(
-    "2d"
+    "2d",
   );
   resizeCanvas();
 
   document.addEventListener("mousemove", handleMousemove);
   document.body.addEventListener("orientationchange", resizeCanvas);
+  document.body.addEventListener("resize", resizeCanvas);
 };
 
 export const clearEventListeners = () => {

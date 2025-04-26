@@ -4,22 +4,17 @@ const currentPath = pathname.slice(1);
 ---
 
 <header>
-  <a
-    href="#main"
-    aria-label="Ship to main content"
-    class="skip-to-main-content"
-    tabindex="0"
+  <a href="/" aria-label="Szymon Szadkowski" class="logo"> </a>
+  <a href="#main" aria-label="Ship to main content" class="skip-to-main-content"
     >Skip to main content
   </a>
-  <a href="/" aria-label="Szymon Szadkowski" class="logo" tabindex="0"> </a>
   <nav>
     <ul>
       <li>
         <a
           aria-label="Go to home page"
           href="/"
-          class={currentPath === "" && "active"}
-          tabindex="0"
+          aria-current={currentPath === ""}
           >index
         </a>
       </li>
@@ -27,8 +22,7 @@ const currentPath = pathname.slice(1);
         <a
           aria-label="Go to about me page"
           href="/about"
-          class={currentPath === "about" && "active"}
-          tabindex="0"
+          aria-current={currentPath === "about"}
           >about
         </a>
       </li>
@@ -36,8 +30,7 @@ const currentPath = pathname.slice(1);
         <a
           aria-label="Go to contact page"
           href="/contact"
-          class={currentPath === "contact" && "active"}
-          tabindex="0"
+          aria-current={currentPath === "contact"}
           >contact
         </a>
       </li>
@@ -65,17 +58,20 @@ const currentPath = pathname.slice(1);
     &:focus {
       color: var(--primary-text);
     }
+
+    &[aria-current="true"] {
+      color: var(--primary-text);
+    }
   }
 
   .active {
-    color: var(--primary-text);
   }
 
   .logo {
     position: relative;
     transition: 0.3s all ease;
     /* We set width here for outline to display properly */
-    width: 6.5ch;
+    width: 7.5ch;
     border-radius: 8px;
 
     &:focus,
@@ -84,7 +80,7 @@ const currentPath = pathname.slice(1);
     }
 
     &::before {
-      content: "@naqet";
+      content: "naqet.dev";
       position: absolute;
       top: 0;
       left: 0;

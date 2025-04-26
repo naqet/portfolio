@@ -45,7 +45,6 @@ Of course, no one template will serve all projects since your needs may be diffe
 ### Built With
 
 [![Astro][astro-badge]][astro-url]
-[![React][react-badge]][react-url]
 [![TypeScript][ts-badge]][ts-url]
 
 ## Getting Started
@@ -77,5 +76,3 @@ Project Link: [https://github.com/naqet/modern-portfolio](https://github.com/naq
 [astro-url]: https://astro.build/
 [ts-badge]: https://img.shields.io/badge/-TypeScript-white?style=for-the-badge&logo=typescript
 [ts-url]: https://www.typescriptlang.org/
-[react-badge]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[react-url]: https://reactjs.org/

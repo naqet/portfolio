@@ -39,12 +39,20 @@ const projects: Project[] = [];
   </h1>
   <h2>Recent projects</h2>
   <ul>
-    {projects.length ? projects.map((project) => (
-      <li>
-        <a href={project.link} class="gradient-underline" tabindex="0">
-          {project.name}</a>{project.description}
-      </li>
-    )) : <li>Coming soon...</li>}
+    {
+      projects.length ? (
+        projects.map((project) => (
+          <li>
+            <a href={project.link} class="gradient-underline" tabindex="0">
+              {project.name}
+            </a>
+            {project.description}
+          </li>
+        ))
+      ) : (
+        <li>Coming soon...</li>
+      )
+    }
   </ul>
   <h2>About me</h2>
   <p class="about-para">
