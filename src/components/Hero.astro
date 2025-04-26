@@ -43,7 +43,7 @@ const projects: Project[] = [];
       projects.length ? (
         projects.map((project) => (
           <li>
-            <a href={project.link} class="gradient-underline" tabindex="0">
+            <a href={project.link} class="gradient-underline">
               {project.name}
             </a>
             {project.description}
@@ -64,10 +64,9 @@ const projects: Project[] = [];
     full-time position as a front-end developer.
   </p>
   <a
-    href="/about"
+    href="/portfolio/about"
     aria-label="Go to about me page"
     class="gradient-underline"
-    tabindex="0"
     >Get to know me better
   </a>
 </main>
