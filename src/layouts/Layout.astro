@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Canvas from "../components/Canvas.vue";
 
 export interface Props {
     title: string;
@@ -17,7 +18,7 @@ const { title, description, keywords } = Astro.props as Props;
         <meta charset="UTF-8" />
         <meta name="theme-color" content="#070707" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="/portfolio/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="author" content="Szymon Szadkowski" />
@@ -25,7 +26,7 @@ const { title, description, keywords } = Astro.props as Props;
         <meta name="keywords" content={keywords} />
         <link
             rel="preload"
-            href="/portfolio/fonts/Inter-Light.woff2"
+            href="/fonts/Inter-Light.woff2"
             as="font"
             type="font/woff2"
             crossorigin
@@ -35,6 +36,7 @@ const { title, description, keywords } = Astro.props as Props;
         <Header />
         <slot />
         <Footer />
+        <Canvas client:only="vue" />
     </body>
 </html>
 
@@ -42,8 +44,8 @@ const { title, description, keywords } = Astro.props as Props;
     @font-face {
         font-family: "Inter";
         src:
-            url("/portfolio/fonts/Inter-Light.woff2") format("woff2"),
-            url("/portfolio/fonts/Inter-Light.woff") format("woff");
+            url("/fonts/Inter-Light.woff2") format("woff2"),
+            url("/fonts/Inter-Light.woff") format("woff");
         font-weight: normal;
         font-style: normal;
         font-display: swap;

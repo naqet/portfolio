@@ -4,7 +4,7 @@ const currentPath = pathname.split("/").at(-1);
 ---
 
 <header>
-    <a href="/portfolio" aria-label="Szymon Szadkowski" class="logo"> </a>
+    <a href="/" aria-label="Szymon Szadkowski" class="logo"> </a>
     <a
         href="#main"
         aria-label="Ship to main content"
@@ -16,15 +16,15 @@ const currentPath = pathname.split("/").at(-1);
             <li>
                 <a
                     aria-label="Go to home page"
-                    href="/portfolio"
-                    aria-current={currentPath === "portfolio"}
-                    >index
+                    href="/"
+                    aria-current={!currentPath || currentPath === "/"}
+                    >home
                 </a>
             </li>
             <li>
                 <a
                     aria-label="Go to about me page"
-                    href="/portfolio/about"
+                    href="/about"
                     aria-current={currentPath === "about"}
                     >about
                 </a>
@@ -32,7 +32,7 @@ const currentPath = pathname.split("/").at(-1);
             <li>
                 <a
                     aria-label="Go to contact page"
-                    href="/portfolio/contact"
+                    href="/contact"
                     aria-current={currentPath === "contact"}
                     >contact
                 </a>
