@@ -49,9 +49,14 @@ const currentPath = pathname.split("/").at(-1);
     }
 
     ul {
+        padding: 0;
         display: flex;
         gap: 2rem;
         list-style-type: none;
+
+        @media screen and (max-width: 500px) {
+            font-size: 1.3rem;
+        }
     }
 
     a {
@@ -67,9 +72,6 @@ const currentPath = pathname.split("/").at(-1);
         }
     }
 
-    .active {
-    }
-
     .logo {
         position: relative;
         transition: 0.3s all ease;
@@ -83,7 +85,7 @@ const currentPath = pathname.split("/").at(-1);
         }
 
         &::before {
-            content: "naqet.dev";
+            content: "You found your dev";
             position: absolute;
             top: 0;
             left: 0;
@@ -91,6 +93,11 @@ const currentPath = pathname.split("/").at(-1);
             transition: 0.3s all ease;
             opacity: 100;
             visibility: visible;
+            text-wrap: nowrap;
+        }
+
+        @media screen and (max-width: 500px) {
+            display: none;
         }
     }
 

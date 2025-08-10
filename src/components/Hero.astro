@@ -1,9 +1,9 @@
 ---
 interface Project {
-  link: string;
-  name: string;
-  description: string;
-  github: string;
+    link: string;
+    name: string;
+    description: string;
+    github: string;
 }
 
 const projects: Project[] = [];
@@ -30,86 +30,106 @@ const projects: Project[] = [];
 ---
 
 <main id="main">
-  <h1>
-    <p>Hi, I'm Szymon Szadkowski 👋</p>
-    <p>
-      The <del>front</del>
-      <span class="gradient-text">full-stack</span> developer based in Warsaw
-    </p>
-  </h1>
-  <h2>Recent projects</h2>
-  <ul>
-    {
-      projects.length ? (
-        projects.map((project) => (
-          <li>
-            <a href={project.link} class="gradient-underline">
-              {project.name}
-            </a>
-            {project.description}
-          </li>
-        ))
-      ) : (
-        <li>Coming soon...</li>
-      )
-    }
-  </ul>
-  <h2>About me</h2>
-  <p class="about-para">
-    I've always been the kind of person who would be ideal for a job as a
-    programmer. I spent a lot of time around computers, was driven to complete
-    tasks, and detested being late. I made the decision to only work on app
-    development around the beginning of 2020, and just one and a half years
-    later - up until that point, I had been freelancing - I was able to land a
-    full-time position as a front-end developer.
-  </p>
-  <a
-    href="/about"
-    aria-label="Go to about me page"
-    class="gradient-underline"
-    >Get to know me better
-  </a>
+    <hgroup>
+        <h1>Hi, I'm Szymon Szadkowski 👋</h1>
+        <p>
+            The <del>front</del>
+            <span class="gradient-text">full-stack</span> developer based in Warsaw
+        </p>
+    </hgroup>
+    <section>
+        <h2>Recent work</h2>
+        <ul>
+            {
+                projects.length ? (
+                    projects.map((project) => (
+                        <li>
+                            <a href={project.link} class="gradient-underline">
+                                {project.name}
+                            </a>
+                            {project.description}
+                        </li>
+                    ))
+                ) : (
+                    <li>Coming soon...</li>
+                )
+            }
+        </ul>
+    </section>
+    <section>
+        <h2>About me</h2>
+        <p class="about-para">
+            I've always been the kind of person who would be ideal for a job as
+            a programmer. I spent a lot of time around computers, was driven to
+            complete tasks, and detested being late. I made the decision to only
+            work on app development around the beginning of 2020, and just one
+            and a half years later - up until that point, I had been freelancing
+            - I was able to land a full-time position as a front-end developer.
+        </p>
+        <a
+            href="/about"
+            aria-label="Go to about me page"
+            class="gradient-underline"
+            >Get to know me better
+        </a>
+    </section>
 </main>
 
 <style lang="scss">
-  main {
-    line-height: 1.5;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    gap: 0.5rem;
-  }
-
-  h1 {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .about-para {
-    line-height: 2;
-    margin-bottom: 1rem;
-  }
-
-  li {
-    color: var(--secondary-text);
-    line-height: 1.8;
-
-    &::before {
-      content: "";
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      position: absolute;
-      background: var(--secondary-text);
-      transform: translate(-18px, 14px);
+    main {
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
-  }
 
-  a {
-    color: var(--primary-text);
-  }
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        gap: 0.5rem;
+    }
+
+    h2 {
+        margin-block-end: 0.5rem;
+    }
+
+    hgroup {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        h1 {
+            margin-block-end: 0;
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 2rem;
+        }
+    }
+
+    .about-para {
+        line-height: 2;
+        margin-bottom: 1rem;
+    }
+
+    li {
+        color: var(--secondary-text);
+        line-height: 1.8;
+
+        &::before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            position: absolute;
+            background: var(--secondary-text);
+            transform: translate(-18px, 14px);
+        }
+    }
+
+    a {
+        color: var(--primary-text);
+    }
 </style>
