@@ -4,160 +4,165 @@ const currentPath = pathname.split("/").at(-1);
 ---
 
 <header>
-    <a href="/" aria-label="Szymon Szadkowski" class="logo"> </a>
-    <a
-        href="#main"
-        aria-label="Ship to main content"
-        class="skip-to-main-content"
-        >Skip to main content
-    </a>
-    <nav>
-        <ul>
-            <li>
-                <a
-                    aria-label="Go to home page"
-                    href="/"
-                    aria-current={!currentPath || currentPath === "/"}
-                    >home
-                </a>
-            </li>
-            <li>
-                <a
-                    aria-label="Go to about me page"
-                    href="/about"
-                    aria-current={currentPath === "about"}
-                    >about
-                </a>
-            </li>
-            <li>
-                <a
-                    aria-label="Go to contact page"
-                    href="/contact"
-                    aria-current={currentPath === "contact"}
-                    >contact
-                </a>
-            </li>
-        </ul>
-    </nav>
+  <a href="/" aria-label="Szymon Szadkowski" class="logo"> </a>
+  <a href="#main" aria-label="Ship to main content" class="skip-to-main-content"
+    >Skip to main content
+  </a>
+  <nav>
+    <ul>
+      <li>
+        <a
+          aria-label="Go to home page"
+          href="/"
+          aria-current={!currentPath || currentPath === "/"}
+          >home
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Go to about me page"
+          href="/blog"
+          aria-current={currentPath === "blog"}
+          >blog
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Go to about me page"
+          href="/about"
+          aria-current={currentPath === "about"}
+          >about
+        </a>
+      </li>
+      <li>
+        <a
+          aria-label="Go to contact page"
+          href="/contact"
+          aria-current={currentPath === "contact"}
+          >contact
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <style lang="scss">
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  ul {
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  a {
+    color: var(--secondary-text);
+
+    &:hover,
+    &:focus {
+      color: var(--primary-text);
+    }
+
+    &[aria-current="true"] {
+      color: var(--primary-text);
+    }
+  }
+
+  .logo {
+    position: relative;
+    transition: 0.3s all ease;
+    /* We set width here for outline to display properly */
+    width: 7.5ch;
+    border-radius: 8px;
+
+    &:focus,
+    &:hover {
+      color: transparent;
+    }
+
+    &::before {
+      content: "You found your dev";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--primary-text);
+      transition: 0.3s all ease;
+      opacity: 100;
+      visibility: visible;
+      text-wrap: nowrap;
+    }
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .skip-to-main-content {
+    position: absolute;
+    top: 4.5rem;
+    left: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
     header {
-        display: flex;
-        justify-content: space-between;
-        padding: 2rem;
-    }
-
-    ul {
-        padding: 0;
-        display: flex;
-        gap: 2rem;
-        list-style-type: none;
-
-        @media screen and (max-width: 500px) {
-            font-size: 1.3rem;
-        }
-    }
-
-    a {
-        color: var(--secondary-text);
-
-        &:hover,
-        &:focus {
-            color: var(--primary-text);
-        }
-
-        &[aria-current="true"] {
-            color: var(--primary-text);
-        }
-    }
-
-    .logo {
-        position: relative;
-        transition: 0.3s all ease;
-        /* We set width here for outline to display properly */
-        width: 7.5ch;
-        border-radius: 8px;
-
-        &:focus,
-        &:hover {
-            color: transparent;
-        }
-
-        &::before {
-            content: "You found your dev";
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: var(--primary-text);
-            transition: 0.3s all ease;
-            opacity: 100;
-            visibility: visible;
-            text-wrap: nowrap;
-        }
-
-        @media screen and (max-width: 500px) {
-            display: none;
-        }
+      padding: 3rem;
     }
 
     .skip-to-main-content {
+      top: 3rem;
+      left: 15rem;
+    }
+
+    .logo {
+      width: 15.5ch;
+      color: transparent;
+
+      &::after {
+        content: "Szymon Szadkowski";
         position: absolute;
-        top: 4.5rem;
-        left: 2rem;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        transition: 0.3s all ease;
+        width: max-content;
+        color: transparent;
+        background-image: linear-gradient(90deg, var(--gradient));
+        background-clip: text;
+        -webkit-background-clip: text;
         opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
+        visibility: hidden;
+      }
 
-        &:focus {
-            opacity: 1;
+      &:hover,
+      &:focus {
+        &::after {
+          transform: translateY(0);
+          opacity: 100;
+          visibility: visible;
         }
+
+        &::before {
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
     }
-
-    @media screen and (min-width: 1024px) {
-        header {
-            padding: 3rem;
-        }
-
-        .skip-to-main-content {
-            top: 3rem;
-            left: 15rem;
-        }
-
-        .logo {
-            width: 15.5ch;
-            color: transparent;
-
-            &::after {
-                content: "Szymon Szadkowski";
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: translateY(100%);
-                transition: 0.3s all ease;
-                width: max-content;
-                color: transparent;
-                background-image: linear-gradient(90deg, var(--gradient));
-                background-clip: text;
-                -webkit-background-clip: text;
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            &:hover,
-            &:focus {
-                &::after {
-                    transform: translateY(0);
-                    opacity: 100;
-                    visibility: visible;
-                }
-
-                &::before {
-                    transform: translateY(-100%);
-                    opacity: 0;
-                    visibility: hidden;
-                }
-            }
-        }
-    }
+  }
 </style>

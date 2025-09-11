@@ -1,0 +1,26 @@
+article {
+    >* {
+        line-height: 1.75;
+        margin-bottom: 1rem !important;
+    }
+
+    >h2 {
+        margin-block: 1rem;
+
+        &::before {
+            content: "# ";
+            display: inline;
+            color: var(--blue);
+        }
+    }
+
+    >p {
+        margin-bottom: 1rem;
+    }
+
+    >ul,
+    >ol {
+        padding-left: 1rem;
+        display: grid;
+    }
+}

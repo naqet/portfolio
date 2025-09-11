@@ -50,7 +50,7 @@ class Line {
     for (let i = 0; i < this.nodes.length; i++) {
       const currentNode = this.nodes[i];
       const previousNode = this.nodes[i - 1];
-      previousNode &&
+      (previousNode &&
         (currentNode.vx += (previousNode.x - currentNode.x) * spring) &&
         (currentNode.vy += (previousNode.y - currentNode.y) * spring) &&
         (currentNode.vx += previousNode.vx * config.dampening) &&
@@ -58,7 +58,7 @@ class Line {
         (currentNode.vx *= this.friction) < (currentNode.vy *= this.friction),
         (currentNode.x += currentNode.vx),
         (currentNode.y += currentNode.vy),
-        (spring *= config.tension);
+        (spring *= config.tension));
     }
   }
 

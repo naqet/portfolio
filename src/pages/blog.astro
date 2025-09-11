@@ -1,0 +1,56 @@
+---
+import type { MarkdownInstance } from "astro";
+import Layout from "../layouts/Layout.astro";
+const posts: MarkdownInstance<{ title: string; date: string }>[] =
+  Object.values(import.meta.glob("./posts/*.md", { eager: true }));
+posts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).getTime() -
+    new Date(a.frontmatter.date).getTime(),
+);
+---
+
+<Layout
+  title="My semi-daily blog"
+  description="You can learn everything you need to know about me right here. If this doesn't sell my character, the last resort will be a job interview that you could schedule for us :)"
+  keywords="programming languages, tools, about me, programmer, frameworks, passionate developer"
+>
+  <main id="main">
+    <h1>Blog posts</h1>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={post.url}>
+              <span class="date">{post.frontmatter.date}</span> |{" "}
+              {post.frontmatter.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .date {
+    color: var(--secondary-text);
+  }
+</style>

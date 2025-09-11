@@ -1,4 +1,6 @@
 ---
+import links from "../links";
+
 const originUrl = new URL(Astro.request.url).origin;
 ---
 
@@ -12,7 +14,7 @@ const originUrl = new URL(Astro.request.url).origin;
     </p>
     <p>
       I am aware that some individuals dislike forms... I'm always available on <a
-        href="https://www.linkedin.com/in/naqet/"
+        href={links.linkedin}
         target="_blank"
         rel="noreferrer"
         class="gradient-underline"
@@ -21,10 +23,7 @@ const originUrl = new URL(Astro.request.url).origin;
     </p>
     <p>Take care and have a nice day!</p>
   </div>
-  <form
-    action="https://formsubmit.co/s.t.szad+portfolio@gmail.com"
-    method="POST"
-  >
+  <form action={`https://formsubmit.co/${links.mail}`} method="POST">
     <div class="input-box">
       <input
         id="name"

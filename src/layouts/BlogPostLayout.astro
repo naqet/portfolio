@@ -1,0 +1,38 @@
+---
+import "./posts-styling.css";
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  keywords={frontmatter.keywords}
+>
+  <main id="main">
+    <article>
+      <hgroup>
+        <h1>
+          {frontmatter.title}
+        </h1>
+        <p>
+          {frontmatter.date} • {frontmatter.minutesRead} • {frontmatter.author}
+        </p>
+      </hgroup>
+      <slot />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  hgroup {
+    margin-bottom: 1rem;
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      color: var(--secondary-text);
+    }
+  }
+</style>

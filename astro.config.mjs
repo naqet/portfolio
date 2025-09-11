@@ -2,12 +2,15 @@
 import { defineConfig } from "astro/config";
 
 import vue from "@astrojs/vue";
+import { remarkReadingTime } from "./src/scripts/readingTime";
 
 // https://astro.build/config
 export default defineConfig({
-    server: {
-        port: 3000,
-    },
-
-    integrations: [vue()],
+  server: {
+    port: 3000,
+  },
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+  },
+  integrations: [vue()],
 });
