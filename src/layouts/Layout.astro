@@ -22,11 +22,23 @@ const { title, description, keywords } = Astro.props as Props;
     <FaviconHead />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="twitter:title" content={title} />
 
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={import.meta.env.SITE} />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content={import.meta.env.SITE + "/overview.png"}
+    />
+
+    <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    <meta property="twitter:url" content={import.meta.env.SITE} />
+    <meta
+      property="twitter:image"
+      content={import.meta.env.SITE + "/overview.png"}
+    />
 
     <meta name="author" content="Szymon Szadkowski" />
     <meta name="copyright" content="Szymon Szadkowski" />
@@ -45,6 +57,7 @@ const { title, description, keywords } = Astro.props as Props;
       type="font/woff"
       crossorigin
     />
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
     <Header />
