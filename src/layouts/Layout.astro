@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Canvas from "../components/Canvas.vue";
+import FaviconHead from "../components/FaviconHead.astro";
 
 export interface Props {
   title: string;
@@ -18,9 +19,15 @@ const { title, description, keywords } = Astro.props as Props;
     <meta charset="UTF-8" />
     <meta name="theme-color" content="#070707" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <FaviconHead />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="twitter:title" content={title} />
+
+    <meta property="og:description" content={description} />
+    <meta property="twitter:description" content={description} />
+
     <meta name="author" content="Szymon Szadkowski" />
     <meta name="copyright" content="Szymon Szadkowski" />
     <meta name="keywords" content={keywords} />
@@ -60,6 +67,7 @@ const { title, description, keywords } = Astro.props as Props;
     --error: #de6d49;
     --gradient: #9685ff, #00d2ef, #67ffd8;
     --bg: #070707;
+    --rounded: 6px;
   }
 
   * {
@@ -88,7 +96,7 @@ const { title, description, keywords } = Astro.props as Props;
     padding: 2rem;
     max-width: 860px;
     width: 100%;
-    margin: 0 auto auto auto;
+    margin: auto;
   }
 
   h2 {
@@ -97,7 +105,7 @@ const { title, description, keywords } = Astro.props as Props;
 
   a {
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: var(--rounded);
     color: var(--primary-text);
   }
 
@@ -112,6 +120,10 @@ const { title, description, keywords } = Astro.props as Props;
 
   textarea {
     font-family: inherit;
+  }
+
+  p {
+    line-height: 2;
   }
 
   .gradient-text {

@@ -21,17 +21,17 @@ const currentPath = pathname.split("/").at(-1);
       <li>
         <a
           aria-label="Go to about me page"
-          href="/blog"
-          aria-current={currentPath === "blog"}
-          >blog
+          href="/about"
+          aria-current={currentPath === "about"}
+          >about me
         </a>
       </li>
       <li>
         <a
           aria-label="Go to about me page"
-          href="/about"
-          aria-current={currentPath === "about"}
-          >about
+          href="/blog"
+          aria-current={currentPath === "blog"}
+          >blog
         </a>
       </li>
       <li>
@@ -59,7 +59,7 @@ const currentPath = pathname.split("/").at(-1);
     gap: 2rem;
     list-style-type: none;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 510px) {
       font-size: 1.3rem;
     }
   }
@@ -82,7 +82,7 @@ const currentPath = pathname.split("/").at(-1);
     transition: 0.3s all ease;
     /* We set width here for outline to display properly */
     width: 7.5ch;
-    border-radius: 8px;
+    border-radius: var(--rounded);
 
     &:focus,
     &:hover {
@@ -101,7 +101,7 @@ const currentPath = pathname.split("/").at(-1);
       text-wrap: nowrap;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 510px) {
       display: none;
     }
   }

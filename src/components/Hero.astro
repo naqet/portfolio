@@ -56,15 +56,15 @@ const projects: Project[] = [];
       }
     </ul>
   </section>
-  <section>
+  <section class="about">
     <h2>About me</h2>
-    <p class="about-para">
+    <p>
       I've always been the kind of person who would be ideal for a job as a
       programmer. I spent a lot of time around computers, was driven to complete
-      tasks, and detested being late. I made the decision to only work on app
-      development around the beginning of 2020, and just one and a half years
-      later - up until that point, I had been freelancing - I was able to land a
-      full-time position as a front-end developer.
+      tasks, and detested being late. I made the decision to solely focus on
+      learning web development around the beginning of 2020, and just one and a
+      half year later, I was able to land a full-time position as a frontend
+      developer. Up to that time I did a couple of freelance contracts.
     </p>
     <a href="/about" aria-label="Go to about me page" class="gradient-underline"
       >Get to know me better
@@ -104,10 +104,19 @@ const projects: Project[] = [];
     p {
       font-size: 2rem;
     }
+
+    @media screen and (max-width: 510px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-size: 1.7rem;
+      }
+    }
   }
 
-  .about-para {
-    line-height: 2;
+  .about p {
     margin-bottom: 1rem;
   }
 
@@ -119,7 +128,7 @@ const projects: Project[] = [];
       content: "";
       width: 4px;
       height: 4px;
-      border-radius: 50%;
+      border-radius: var(--rounded);
       position: absolute;
       background: var(--secondary-text);
       transform: translate(-18px, 14px);
