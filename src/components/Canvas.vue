@@ -16,5 +16,9 @@ onMounted(initCanvas);
   z-index: -1;
   width: 100vw;
   height: 100vh;
+
+  @media screen and (max-width: 480px) {
+      display: none;
+  }
 }
 </style>
