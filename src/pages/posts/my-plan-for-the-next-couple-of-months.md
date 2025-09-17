@@ -1,8 +1,10 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 title: My plan for the next couple of months
+description: Explore my journey as a developer building a public project portfolio, finishing diverse coding projects, and sharing practical tips for showcasing your skills.
 date: 11 September 2025
 author: Szymon Szadkowski
+keywords: plan, goals, projects
 ---
 
 I have been a professional developer for nearly five years now. During that 
